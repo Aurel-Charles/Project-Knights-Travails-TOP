@@ -4,7 +4,7 @@ A JavaScript solution to [The Odin Project's Knight's Travails](https://www.theo
 
 ## Overview
 
-A knight's possible moves form an implicit graph — each square is a node, and each legal knight move is an edge. Finding the *shortest* path between two squares is a classic **Breadth-First Search (BFS)** problem: unlike Depth-First Search, BFS explores the board level by level (all squares reachable in 1 move, then 2 moves, etc.), which guarantees that the first time the target square is reached, it has been reached via the shortest possible path.
+A knight's possible moves form an implicit graph — each square is a node, and each legal knight move is an edge. Finding the _shortest_ path between two squares is a classic **Breadth-First Search (BFS)** problem: unlike Depth-First Search, BFS explores the board level by level (all squares reachable in 1 move, then 2 moves, etc.), which guarantees that the first time the target square is reached, it has been reached via the shortest possible path.
 
 ## How it works
 
@@ -25,13 +25,13 @@ The lesson's bonus section asks for support of standard chess notation (e.g. `"A
 
 This keeps `knightMoves` focused on a single responsibility (pathfinding on coordinates) while notation conversion stays isolated and doesn't risk introducing bugs into the core algorithm.
 
-> **Note on multiple shortest paths:** the board can have more than one shortest path between two squares. This solution returns the first one BFS finds — which is guaranteed to be *a* shortest path, though not necessarily the only one.
+> **Note on multiple shortest paths:** the board can have more than one shortest path between two squares. This solution returns the first one BFS finds — which is guaranteed to be _a_ shortest path, though not necessarily the only one.
 
 ## Usage
 
 ```javascript
 // Using board coordinates
-knightMoves([0, 0], [7, 7])
+knightMoves([0, 0], [7, 7]);
 // => {
 //      message: "You've made it in 6 move(s) => [0,0],[2,1],[4,2],[6,3],[4,4],[6,5],[7,7]",
 //      movement: 6,
@@ -39,7 +39,7 @@ knightMoves([0, 0], [7, 7])
 //    }
 
 // Using chess notation
-knightMovesChess(["A1", "H8"])
+knightMovesChess(["A1", "H8"]);
 // => {
 //      message: "You've made it in 6 move(s) => [A,1],[C,2],[E,3],[G,4],[E,5],[G,6],[H,8]",
 //      movement: 6,
@@ -49,12 +49,12 @@ knightMovesChess(["A1", "H8"])
 
 ## Functions
 
-| Function | Description |
-|---|---|
-| `nextMoves([x, y])` | Returns all valid knight moves from a given position |
-| `keyToString([x, y])` | Converts a position to a string key (`"x,y"`) |
-| `stringToKey(string)` | Converts a string key back to a position array |
-| `knightMoves(start, end)` | Runs BFS and returns the shortest path between two board positions |
-| `chessToKey(["A1", ...])` | Converts chess notation to board coordinates |
-| `keytoChess([[0,0], ...])` | Converts board coordinates to chess notation |
+| Function                         | Description                                                          |
+| -------------------------------- | -------------------------------------------------------------------- |
+| `nextMoves([x, y])`              | Returns all valid knight moves from a given position                 |
+| `keyToString([x, y])`            | Converts a position to a string key (`"x,y"`)                        |
+| `stringToKey(string)`            | Converts a string key back to a position array                       |
+| `knightMoves(start, end)`        | Runs BFS and returns the shortest path between two board positions   |
+| `chessToKey(["A1", ...])`        | Converts chess notation to board coordinates                         |
+| `keytoChess([[0,0], ...])`       | Converts board coordinates to chess notation                         |
 | `knightMovesChess([start, end])` | Wrapper around `knightMoves` that accepts and returns chess notation |
