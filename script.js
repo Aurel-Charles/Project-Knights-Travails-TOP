@@ -49,13 +49,11 @@ function knightMoves([startX,startY],[endX,endY]) {
     while (queue.length !== 0) {
         current = queue.shift()
         if (keyToString(current) === keyToString([endX,endY])) {
-            console.log(current);
             
             let resultPath = []
             let orderedResultPath = []
             resultPath.push(keyToString(current))
             current = parentsAdress[keyToString(current)]
-            console.log(current);
             
             while (current !== undefined ) {
                 resultPath.push(current)
