@@ -41,15 +41,9 @@ function nextMoves([x,y]) {
 function knightMoves([startX,startY],[endX,endY]) {
     let parentsAdress = {}
     let visited = new Set()
-
-
     let current = [startX,startY]
     visited.add(keyToString(current))
 
-    console.log(parentsAdress);
-    console.log(visited);
-    
-    // une queue
     let queue = [[startX,startY]]
     
     while (queue.length !== 0) {
@@ -75,7 +69,6 @@ function knightMoves([startX,startY],[endX,endY]) {
 
             const numOfMove = orderedResultPath.length - 1 
             const result = orderedResultPath.map(value => `[${value}]`)
-            // `You've made it in ${numOfMove} move(s) => ${result}`
 
             return {message: `You've made it in ${numOfMove} move(s) => ${result}` , movement: numOfMove, path: orderedResultPath }
         }   
